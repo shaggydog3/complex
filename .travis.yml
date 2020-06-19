@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build =t shaggydog3/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t shaggydog3/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run shaggydog3/react-test npm test -- --coverage
