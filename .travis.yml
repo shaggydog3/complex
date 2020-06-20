@@ -20,3 +20,15 @@ after_success:
   - docker push shaggydog/multi-nginx
   - docker push shaggydog/multi-server
   - docker push shaggydog/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-887293043336
+  bucket_path: docker-multi
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
